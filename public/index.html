@@ -8,11 +8,15 @@
     <link rel="stylesheet" href="/css/app.css"/>
   </head>
   <body ng-controller='MainController as ctrl'>
-    {{2+2}}
+    <h1>Books Read This Year</h1>
     <div class="container">
       <form ng-submit='ctrl.createBook()'>
-                <input type="text" ng-model="ctrl.createForm.title" placeholder="Book Name">
-                <input type="submit" value="Create New Book">
+        <input type="text" ng-model="ctrl.createForm.title" placeholder="Book Name">
+        <input type="text" ng-model="ctrl.createForm.author" placeholder="Author">
+        <input type="text" ng-model="ctrl.createForm.synopsis" placeholder="Synopsis">
+        <span>Would you recommend this book?</span>
+        <input type="checkbox" ng-model="ctrl.createForm.wouldRecommend">
+        <input type="submit" value="Create New Book">
       </form>
 
     </div>
