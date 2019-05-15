@@ -8,11 +8,8 @@ const port = 3000;
 app.use(express.static('public'));
 app.use(express.json());
 
-
-app.get('/', (req, res) => {
-  res.send('hello world')
-});
-
+const booksController = require('./controllers/books.js')
+app.use('/books', booksController)
 
 
 

@@ -7,7 +7,14 @@
     <script src="/js/app.js" charset="utf-8"></script>
     <link rel="stylesheet" href="/css/app.css"/>
   </head>
-  <body>
+  <body ng-controller='MainController as ctrl'>
     {{2+2}}
+    <div class="container">
+      <form ng-submit='ctrl.createBook()'>
+                <input type="text" ng-model="ctrl.createForm.title" placeholder="Book Name">
+                <input type="submit" value="Create New Book">
+      </form>
+
+    </div>
   </body>
 </html>
