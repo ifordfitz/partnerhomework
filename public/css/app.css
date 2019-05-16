@@ -1,0 +1,22 @@
+ul {
+  list-style: none;
+}
+
+body {
+  text-align: center;
+
+}
+
+.editLink {
+  text-decoration: none;
+}
+
+.savedBooks {
+
+}
+
+.bookTitle {
+    background-color: powderBlue;
+    width: 5em;
+    height: 5em;
+}

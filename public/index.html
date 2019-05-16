@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" ng-app="MyBooks">
+  <head>
+    <meta charset="utf-8">
+    <title>Books</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js" charset="utf-8"></script>
+    <script src="/js/app.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="/css/app.css"/>
+  </head>
+  <body ng-controller='MainController as ctrl'>
+    <h1>Books Read This Year</h1>
+    <div class="container">
+      <form ng-submit='ctrl.createBook()'>
+        <input type="text" ng-model="ctrl.createForm.title" placeholder="Book Title">
+        <input type="text" ng-model="ctrl.createForm.author" placeholder="Author">
+        <input type="text" ng-model="ctrl.createForm.synopsis" placeholder="Synopsis">
+        <span>Would you recommend this book?</span>
+        <input type="checkbox" ng-model="ctrl.createForm.wouldRecommend">
+        <input type="submit" value="Create New Book">
+      </form>
+    </div>
+    <hr>
+    <div class="savedBooks">
+      <ul>
+        <li ng-repeat="book in ctrl.books">
+          <span class="bookTitle">
+            <strong>{{book.title}}</strong> by {{book.author}}
+          </span>
+          <br>
+          <em>{{book.synopsis}}</em>
+          <br>
+          <button ng-click="ctrl.deleteBook(book)">Delete This Book</button>
+          <form ng-if="$index === ctrl.indexOfEditFormToShow" ng-submit="ctrl.editBook(book)">
+              <input ng-model="ctrl.updatedDescription" type="text" placeholder="description"/>
+              <input type="text" ng-model="ctrl.updatedTitle" placeholder="Book Title">
+              <input type="text" ng-model="ctrl.updatedAuthor" placeholder="Author">
+              <input type="text" ng-model="ctrl.updatedSynopsis" placeholder="Synopsis">
+              <span>Would you recommend this book?</span>
+              <input type="checkbox" ng-model="ctrl.updatedWouldRecommend">
+              <input type="submit" value="Update Book"/>
+          </form>
+          <a class="editLink"
+              ng-if="$index !== ctrl.indexOfEditFormToShow"
+              href="#"
+              ng-click="ctrl.indexOfEditFormToShow = $index">
+                  Edit This Todo
+          </a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>
