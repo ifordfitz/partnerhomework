@@ -19,11 +19,13 @@
         <input type="submit" value="Create New Book">
       </form>
     </div>
+    <hr>
     <div class="savedBooks">
       <ul>
         <li ng-repeat="book in ctrl.books">
-
+          <span class="bookTitle">
             <strong>{{book.title}}</strong> by {{book.author}}
+          </span>
           <br>
           <em>{{book.synopsis}}</em>
           <br>

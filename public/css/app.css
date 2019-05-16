@@ -4,6 +4,7 @@ ul {
 
 body {
   text-align: center;
+
 }
 
 .editLink {
@@ -11,5 +12,11 @@ body {
 }
 
 .savedBooks {
-  
+
+}
+
+.bookTitle {
+    background-color: powderBlue;
+    width: 5em;
+    height: 5em;
 }
