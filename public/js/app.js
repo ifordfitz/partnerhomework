@@ -5,6 +5,7 @@ app.controller('MainController', ['$http', function($http){
     this.indexOfEditFormToShow = null;
     const controller = this;
     this.createForm = {}
+    this.book = '';
     this.createBook = () => {
         $http({
               method: 'POST',
@@ -12,6 +13,7 @@ app.controller('MainController', ['$http', function($http){
               data: this.createForm
         }).then(response => {
               console.log(response.data);
+              this.books.unshift(response.data)
               this.createForm = {}
         }).catch(error => {
               console.log(error);

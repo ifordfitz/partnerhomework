@@ -21,26 +21,29 @@
     </div>
     <div class="savedBooks">
       <ul>
-          <li ng-repeat="book in ctrl.books">
-                  {{book.title}} by {{book.author}}  <br>
-                  {{book.synopsis}}
-                  <button ng-click="ctrl.deleteBook(book)">Delete This Book</button>
-                  <form ng-if="$index === ctrl.indexOfEditFormToShow" ng-submit="ctrl.editBook(book)">
-                      <input ng-model="ctrl.updatedDescription" type="text" placeholder="description"/>
-                      <input type="text" ng-model="ctrl.updatedTitle" placeholder="Book Title">
-                      <input type="text" ng-model="ctrl.updatedAuthor" placeholder="Author">
-                      <input type="text" ng-model="ctrl.updatedSynopsis" placeholder="Synopsis">
-                      <span>Would you recommend this book?</span>
-                      <input type="checkbox" ng-model="ctrl.updatedWouldRecommend">
-                      <input type="submit" value="Update Book"/>
-                  </form>
-                  <a
-                      ng-if="$index !== ctrl.indexOfEditFormToShow"
-                      href="#"
-                      ng-click="ctrl.indexOfEditFormToShow = $index">
-                          Edit This Todo
-                  </a>
-          </li>
+        <li ng-repeat="book in ctrl.books">
+
+            <strong>{{book.title}}</strong> by {{book.author}}
+          <br>
+          <em>{{book.synopsis}}</em>
+          <br>
+          <button ng-click="ctrl.deleteBook(book)">Delete This Book</button>
+          <form ng-if="$index === ctrl.indexOfEditFormToShow" ng-submit="ctrl.editBook(book)">
+              <input ng-model="ctrl.updatedDescription" type="text" placeholder="description"/>
+              <input type="text" ng-model="ctrl.updatedTitle" placeholder="Book Title">
+              <input type="text" ng-model="ctrl.updatedAuthor" placeholder="Author">
+              <input type="text" ng-model="ctrl.updatedSynopsis" placeholder="Synopsis">
+              <span>Would you recommend this book?</span>
+              <input type="checkbox" ng-model="ctrl.updatedWouldRecommend">
+              <input type="submit" value="Update Book"/>
+          </form>
+          <a class="editLink"
+              ng-if="$index !== ctrl.indexOfEditFormToShow"
+              href="#"
+              ng-click="ctrl.indexOfEditFormToShow = $index">
+                  Edit This Todo
+          </a>
+        </li>
       </ul>
     </div>
   </body>
