@@ -23,7 +23,7 @@ router.post('/', async (req, res) => {
 })
 
 // DELETE
-books.delete('/:id', async (req, res) => {
+router.delete('/:id', async (req, res) => {
   try {
     const deleteBook = await Book.findByIdAndRemove(req.params.id)
     res.status(200).json(deleteBook)
@@ -33,7 +33,7 @@ books.delete('/:id', async (req, res) => {
 })
 
 // EDIT
-books.put('/:id', async (req, res) => {
+router.put('/:id', async (req, res) => {
   try {
     const updateBook = await Book.findByIdAndUpdate(req.params.id, req.body, { new: true })
     res.status(200).json(updateBook)

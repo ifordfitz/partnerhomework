@@ -11,14 +11,37 @@
     <h1>Books Read This Year</h1>
     <div class="container">
       <form ng-submit='ctrl.createBook()'>
-        <input type="text" ng-model="ctrl.createForm.title" placeholder="Book Name">
+        <input type="text" ng-model="ctrl.createForm.title" placeholder="Book Title">
         <input type="text" ng-model="ctrl.createForm.author" placeholder="Author">
         <input type="text" ng-model="ctrl.createForm.synopsis" placeholder="Synopsis">
         <span>Would you recommend this book?</span>
         <input type="checkbox" ng-model="ctrl.createForm.wouldRecommend">
         <input type="submit" value="Create New Book">
       </form>
-
+    </div>
+    <div class="savedBooks">
+      <ul>
+          <li ng-repeat="book in ctrl.books">
+                  {{book.title}} by {{book.author}}  <br>
+                  {{book.synopsis}}
+                  <button ng-click="ctrl.deleteBook(book)">Delete This Book</button>
+                  <form ng-if="$index === ctrl.indexOfEditFormToShow" ng-submit="ctrl.editBook(book)">
+                      <input ng-model="ctrl.updatedDescription" type="text" placeholder="description"/>
+                      <input type="text" ng-model="ctrl.updatedTitle" placeholder="Book Title">
+                      <input type="text" ng-model="ctrl.updatedAuthor" placeholder="Author">
+                      <input type="text" ng-model="ctrl.updatedSynopsis" placeholder="Synopsis">
+                      <span>Would you recommend this book?</span>
+                      <input type="checkbox" ng-model="ctrl.updatedWouldRecommend">
+                      <input type="submit" value="Update Book"/>
+                  </form>
+                  <a
+                      ng-if="$index !== ctrl.indexOfEditFormToShow"
+                      href="#"
+                      ng-click="ctrl.indexOfEditFormToShow = $index">
+                          Edit This Todo
+                  </a>
+          </li>
+      </ul>
     </div>
   </body>
 </html>
